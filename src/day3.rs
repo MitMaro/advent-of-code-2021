@@ -112,3 +112,35 @@ pub fn part2(input: &(usize, Vec<u16>)) -> u32 {
 
 	oxygen as u32 * co2 as u32
 }
+
+#[cfg(test)]
+mod tests {
+	use indoc::indoc;
+
+	use super::*;
+
+	static EXAMPLE: &'static str = indoc! {"
+		00100
+		11110
+		10110
+		10111
+		10101
+		01111
+		00111
+		11100
+		10000
+		11001
+		00010
+		01010
+	"};
+
+	#[test]
+	fn example_part1() {
+		assert_eq!(part1(&input_generator(EXAMPLE)), 198);
+	}
+
+	#[test]
+	fn example_part2() {
+		assert_eq!(part2(&input_generator(EXAMPLE)), 230);
+	}
+}

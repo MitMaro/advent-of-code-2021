@@ -39,3 +39,33 @@ pub fn part2(input: &Vec<i32>) -> i32 {
 	}
 	increased
 }
+
+#[cfg(test)]
+mod tests {
+	use indoc::indoc;
+
+	use super::*;
+
+	static EXAMPLE: &'static str = indoc! {"
+		199
+		200
+		208
+		210
+		200
+		207
+		240
+		269
+		260
+		263
+	"};
+
+	#[test]
+	fn example_part1() {
+		assert_eq!(part1(&input_generator(EXAMPLE)), 7);
+	}
+
+	#[test]
+	fn example_part2() {
+		assert_eq!(part2(&input_generator(EXAMPLE)), 5);
+	}
+}

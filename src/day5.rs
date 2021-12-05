@@ -89,3 +89,33 @@ pub fn part2(input: &Vec<Vectors>) -> usize {
 
 	visited.values().filter(|v| **v > 1).count()
 }
+
+#[cfg(test)]
+mod tests {
+	use indoc::indoc;
+
+	use super::*;
+
+	static EXAMPLE: &'static str = indoc! {"
+		0,9 -> 5,9
+		8,0 -> 0,8
+		9,4 -> 3,4
+		2,2 -> 2,1
+		7,0 -> 7,4
+		6,4 -> 2,0
+		0,9 -> 2,9
+		3,4 -> 1,4
+		0,0 -> 8,8
+		5,5 -> 8,2
+	"};
+
+	#[test]
+	fn example_part1() {
+		assert_eq!(part1(&input_generator(EXAMPLE)), 5);
+	}
+
+	#[test]
+	fn example_part2() {
+		assert_eq!(part2(&input_generator(EXAMPLE)), 12);
+	}
+}

@@ -59,3 +59,29 @@ pub fn part2(input: &Vec<(Direction, u32)>) -> u32 {
 
 	location.1 * location.2
 }
+
+#[cfg(test)]
+mod tests {
+	use indoc::indoc;
+
+	use super::*;
+
+	static EXAMPLE: &'static str = indoc! {"
+		forward 5
+		down 5
+		forward 8
+		up 3
+		down 8
+		forward 2
+	"};
+
+	#[test]
+	fn example_part1() {
+		assert_eq!(part1(&input_generator(EXAMPLE)), 150);
+	}
+
+	#[test]
+	fn example_part2() {
+		assert_eq!(part2(&input_generator(EXAMPLE)), 900);
+	}
+}
